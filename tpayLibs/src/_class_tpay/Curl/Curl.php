@@ -112,10 +112,10 @@ class Curl extends CurlOptions
      * Set Curl request data
      * @return object
      */
-    public function enableJSONResponse()
+    public function enableJSONResponse($isJSON = true)
     {
-        $this->json = true;
-        $this->postData['json'] = true;
+        $this->json = $isJSON;
+        $this->postData['json'] = $isJSON;
 
         return $this;
     }

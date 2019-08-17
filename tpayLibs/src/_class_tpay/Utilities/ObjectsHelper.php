@@ -79,12 +79,13 @@ class ObjectsHelper
     protected $validator;
     protected $curl;
 
-    public function requests($url, $params)
+    public function requests($url, $params, $expectJson = true)
     {
         $this->curl = new Curl();
+
         return $this->curl->setRequestUrl($url)
             ->setPostData($params)
-            ->enableJSONResponse()
+            ->enableJSONResponse($expectJson)
             ->doRequest()
             ->getResult();
     }
